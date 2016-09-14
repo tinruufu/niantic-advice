@@ -7,8 +7,22 @@
   </head>
   <body>
     <main>
-      <p>Do not tresspass while playing Pokémon GO.</p>
+      <p id="target">Do not tresspass while playing Pokémon GO.</p>
       <button>OK</button>
     </main>
   </body>
+
+  <script>
+    var targetElement = document.getElementById('target');
+
+    function setText(text) {
+      targetElement.innerText = text;
+    }
+
+    var hash = decodeURIComponent(window.location.hash.replace(/^#/, ''));
+
+    if (hash) {
+      setText(hash);
+    }
+  </script>
 </html>
