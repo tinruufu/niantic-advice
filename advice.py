@@ -19,6 +19,7 @@ PREFIXES = [
     'Stay',
     'Take',
     'Try',
+    'Use',
 ]
 
 
@@ -30,7 +31,7 @@ def wikihow(**params):
 def get_advice():
     titles = []
 
-    for attempt in range(1):
+    for attempt in range(10):
         title = (
             wikihow(title='Special:Randomizer').headers['Location']
             .replace('http://www.wikihow.com/', '')

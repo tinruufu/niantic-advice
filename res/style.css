@@ -16,19 +16,20 @@ body {
   font-family: 'Lato';
   color: #36555C;
   text-align: center;
-  font-size: 2rem;
+  font-size: 3vw;
   height: 100vh;
   box-sizing: border-box;
-  padding: 2em 0;
+  padding: 1em 0;
 }
 
 main {
   margin: 0 auto;
   padding: 2em 2em 1em;
   background-color: #F8FFF8;
-  border-radius: .5em;
+  border-radius: .25em;
   box-shadow: 0 0 .5em rgba(0, 0, 0, 0.5);
-  width: 14em;
+  min-width: 14em;
+  max-width: 18em;
 }
 
 p {
