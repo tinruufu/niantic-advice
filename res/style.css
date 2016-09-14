@@ -1,0 +1,46 @@
+@font-face {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 400;
+  src: url(Lato.woff) format('woff');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background: linear-gradient(to bottom right, #41B070, #367670);
+  font-family: 'Lato';
+  color: #36555C;
+  text-align: center;
+  font-size: 2rem;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 2em 0;
+}
+
+main {
+  margin: 0 auto;
+  padding: 2em 2em 1em;
+  background-color: #F8FFF8;
+  border-radius: .5em;
+  box-shadow: 0 0 .5em rgba(0, 0, 0, 0.5);
+  width: 14em;
+}
+
+p {
+  margin-bottom: 2em;
+}
+
+button {
+  font-size: .9em;
+  background: linear-gradient(to right, #92D683, #26C399);
+  color: #F8FFF8;
+  letter-spacing: .15em;
+  height: 3.4em;
+  width: 14em;
+  border-radius: 1.7em;
+}
