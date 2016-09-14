@@ -13,7 +13,9 @@ api = tweepy.API(auth)
 
 
 def tweet():
-    advice = get_advice()
+    advice = get_advice(
+        max_length=140-api.configuration()['short_url_length'],
+    )
     image = generate_image(advice)
     api.update_with_media(image, status=advice)
 

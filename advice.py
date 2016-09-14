@@ -27,7 +27,7 @@ def wikihow(**params):
                         allow_redirects=False)
 
 
-def get_advice():
+def get_advice(max_length=118):
     titles = []
 
     for attempt in range(10):
@@ -59,7 +59,7 @@ def get_advice():
         if matches:
             sentence, terminator = choice(matches)
             candidate = sentence + ' while playing Pokémon GO' + terminator
-            if len(candidate) <= 140:
+            if len(candidate) <= max_length:
                 return candidate
 
     raise ValueError('could not find any good advice; tried:\n\n{}'.format(
