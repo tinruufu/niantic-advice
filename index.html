@@ -19,10 +19,12 @@
       targetElement.innerText = text;
     }
 
-    var hash = decodeURIComponent(window.location.hash.replace(/^#/, ''));
-
-    if (hash) {
-      setText(hash);
+    function respectHash() {
+      var hash = decodeURIComponent(window.location.hash.replace(/^#/, ''));
+      if (hash) setText(hash);
     }
+
+    respectHash();
+    window.onhashchange = respectHash;
   </script>
 </html>
