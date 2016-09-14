@@ -19,7 +19,6 @@ PREFIXES = [
     'Stay',
     'Take',
     'Try',
-    'Use',
 ]
 
 
