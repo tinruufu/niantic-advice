@@ -59,8 +59,8 @@ def get_map_url():
             zoom=17,
             bearing=random.random()*360,
             pitch=45,
-            w=1280,
-            h=1280 // (W // H),
+            w=1000,
+            h=1000,
             access_token=mapbox_access_token,
         )
     )
@@ -77,12 +77,7 @@ def generate_image(advice):
     if mapbox:
         map_url = get_map_url()
         driver.execute_script('setBackground({});'.format(json.dumps(map_url)))
-        for attempt in range(10):
-            if driver.execute_script('return mapElement.complete;'):
-                break
-            sleep(1)
-        else:
-            raise ValueError('image failed to load:\n{}'.format(map_url))
+        sleep(3)
 
     driver.save_screenshot(image_path)
 

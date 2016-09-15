@@ -12,27 +12,44 @@
 }
 
 body {
-  overflow: hidden;
-  background: linear-gradient(to bottom right, #41B070, #367670);
   font-family: 'Lato';
-  color: #36555C;
-  text-align: center;
-  font-size: 3vw;
+
+  width: 100vw;
   height: 100vh;
   box-sizing: border-box;
   padding: 1.8em 0 0;
+  overflow: hidden;
+
+  background: linear-gradient(to bottom right, #41B070, #367670);
+  color: #36555C;
+  text-align: center;
+  font-size: 3vw;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: 1;
+  opacity: 0.2;
 }
 
 main {
   position: relative;
   z-index: 2;
+
   margin: 0 auto;
   padding: 2em 2em 1em;
+  min-width: 14em;
+  max-width: 18em;
+
   background-color: #F8FFF8;
   border-radius: .25em;
   box-shadow: 0 0 .5em rgba(0, 0, 0, 0.5);
-  min-width: 14em;
-  max-width: 18em;
 }
 
 p {
@@ -41,20 +58,12 @@ p {
 }
 
 button {
-  font-size: .9em;
-  background: linear-gradient(to right, #92D683, #26C399);
-  color: #F8FFF8;
-  letter-spacing: .15em;
   height: 3.4em;
   width: 14em;
-  border-radius: 1.7em;
-}
+  font-size: .9em;
+  letter-spacing: .15em;
 
-img {
-  width: 120%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  opacity: 0.2;
+  border-radius: 1.7em;
+  background: linear-gradient(to right, #92D683, #26C399);
+  color: #F8FFF8;
 }
