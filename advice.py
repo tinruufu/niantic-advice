@@ -58,7 +58,7 @@ def get_advice(max_length=118):
 
         if matches:
             sentence, terminator = choice(matches)
-            candidate = sentence + ' while playing Pokémon GO' + terminator
+            candidate = sentence + ' while playing Pokémon GO' + terminator
             if len(candidate) <= max_length:
                 return candidate
 
