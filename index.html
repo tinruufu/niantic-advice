@@ -14,6 +14,7 @@
 
   <script>
     var targetElement = document.getElementById('target');
+    var mapElement;
 
     function setText(text) {
       targetElement.innerText = text;
@@ -22,6 +23,12 @@
     function respectHash() {
       var hash = decodeURIComponent(window.location.hash.replace(/^#/, ''));
       if (hash) setText(hash);
+    }
+
+    function setBackground(url) {
+      mapElement = document.createElement('img');
+      mapElement.setAttribute('src', url);
+      document.body.appendChild(mapElement);
     }
 
     respectHash();

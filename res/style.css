@@ -12,6 +12,7 @@
 }
 
 body {
+  overflow: hidden;
   background: linear-gradient(to bottom right, #41B070, #367670);
   font-family: 'Lato';
   color: #36555C;
@@ -23,6 +24,8 @@ body {
 }
 
 main {
+  position: relative;
+  z-index: 2;
   margin: 0 auto;
   padding: 2em 2em 1em;
   background-color: #F8FFF8;
@@ -45,4 +48,13 @@ button {
   height: 3.4em;
   width: 14em;
   border-radius: 1.7em;
+}
+
+img {
+  width: 120%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.2;
 }
