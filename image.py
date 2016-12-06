@@ -33,7 +33,7 @@ def get_city_latlng():
 
     for dimension in raw_latlon:
         major, minor, direction = re.match(
-            r'(\d+)°(\d+)′([NESW])', dimension
+            r'(\d+)° ?(\d+)′(?:\d+["′])?([NESW])', dimension
         ).groups()
 
         absolute = int(major) + (int(minor)/60)
