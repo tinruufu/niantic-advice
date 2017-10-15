@@ -25,7 +25,7 @@ PREFIXES = [
 
 
 def wikihow(**params):
-    return requests.get('http://www.wikihow.com/index.php', params=params,
+    return requests.get('https://www.wikihow.com/index.php', params=params,
                         allow_redirects=False)
 
 
@@ -35,7 +35,7 @@ def get_advice(max_length=118):
     for attempt in range(10):
         title = (
             wikihow(title='Special:Randomizer').headers['Location']
-            .replace('http://www.wikihow.com/', '')
+            .replace('https://www.wikihow.com/', '')
         )
         titles.append(title)
 
