@@ -20,7 +20,7 @@ else:
 
 
 HERE = os.path.dirname(os.path.realpath(__file__))
-W, H = (1500, 1500)
+W, H = (1500, 1400)
 
 
 def get_city_latlng():
