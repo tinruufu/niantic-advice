@@ -43,7 +43,7 @@ main {
   z-index: 2;
 
   margin: 0 auto;
-  padding: 2em 2em 1em;
+  padding: 1.5em 2em 1.5em;
   min-width: 14em;
   max-width: 18em;
 
@@ -52,9 +52,26 @@ main {
   box-shadow: 0 0 .5em rgba(0, 0, 0, 0.5);
 }
 
-p {
-  margin-bottom: 2em;
+#target {
+  margin-bottom: 1.5em;
   line-height: 1.4em;
+}
+
+#warning {
+  color: #1b424f;
+  background-image: url("warning.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 12em;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+#warning-icon {
+  font-size: 4em;
+  position: relative;
+  top: 1.45em;
 }
 
 button {

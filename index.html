@@ -4,16 +4,19 @@
     <meta charset="utf-8"/>
     <title>advice from niantic</title>
     <link rel="stylesheet" href="res/style.css" type="text/css"/>
+    <link rel="stylesheet" href="res/fa/css/all.min.css" type="text/css"/>
   </head>
   <body>
     <div id="map"></div>
     <main>
+      <p id="warning"><i id="warning-icon" class="fa"></i></p>
       <p id="target">Do not tresspass while playing Pokémon GO.</p>
       <button>OK</button>
     </main>
   </body>
 
   <script>
+    var iconElement = document.getElementById('warning-icon');
     var targetElement = document.getElementById('target');
     var mapElement = document.getElementById('map')
 
@@ -26,11 +29,33 @@
       if (hash) setText(hash);
     }
 
+    function setIcon() {
+      var iconsRequest = new XMLHttpRequest();
+
+      iconsRequest.addEventListener("load", function() {
+        var icons = JSON.parse(this.response);
+        var iconNames = [];
+
+        for (var iconName in icons) {
+          if (icons[iconName].free.indexOf("solid") !== -1) {
+            iconNames.push(iconName);
+          }
+        }
+
+        iconElement.classList.add("fa-" + iconNames[Math.floor(Math.random() * iconNames.length)]);
+      });
+
+      iconsRequest.open("GET", "res/fa/metadata/icons.json");
+      iconsRequest.send();
+    }
+
     function setBackground(url) {
       mapElement.setAttribute('style', 'background-image: url(' + url + ')');
     }
 
     respectHash();
+    setIcon();
+
     window.onhashchange = respectHash;
   </script>
 </html>

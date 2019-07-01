@@ -20,7 +20,7 @@ else:
 
 
 HERE = os.path.dirname(os.path.realpath(__file__))
-W, H = (2000, 1000)
+W, H = (1500, 1500)
 
 
 def get_city_latlng():
@@ -77,7 +77,8 @@ def generate_image(advice):
     if mapbox:
         map_url = get_map_url()
         driver.execute_script('setBackground({});'.format(json.dumps(map_url)))
-        sleep(3)
+
+    sleep(3)
 
     driver.save_screenshot(image_path)
 
