@@ -25,21 +25,28 @@ PREFIXES = [
 
 
 def wikihow(**params):
-    return requests.get('https://www.wikihow.com/index.php', params=params,
-                        allow_redirects=False)
+    return requests.get('https://www.wikihow.com/index.php', params=params)
+
+
+def wikihow_api(**params):
+    params.update({'format': 'json'})
+    return requests.get('https://www.wikihow.com/api.php', params=params,
+                        allow_redirects=False).json()
 
 
 def get_advice(max_length=118):
     titles = []
 
     for attempt in range(10):
-        title = (
-            wikihow(title='Special:Randomizer').headers['Location']
-            .replace('https://www.wikihow.com/', '')
-        )
-        titles.append(title)
-
-        content = wikihow(title=title, action='raw').content.decode('utf-8')
+        article, = wikihow_api(action='query', list='random', rnnamespace=0,
+                               rnlimit=1)['query']['random']
+        titles.append(article['title'])
+        article_id = article['id']
+        content = wikihow_api(
+            action='query', format='json', prop='revisions',
+            curtimestamp=1, pageids=article_id, rvslots='*', rvprop='content',
+        )['query']['pages'][
+            str(article_id)]['revisions'][0]['slots']['main']['*']
 
         # replace link syntax with raw text
         content = re.sub(r'\[\[[^|:\]]+\|([^\]]+)\]\]', lambda m: m.group(1),
