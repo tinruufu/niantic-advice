@@ -9,7 +9,7 @@ from time import sleep
 from urllib.parse import quote
 
 from PIL import Image
-from selenium.webdriver import PhantomJS
+from selenium.webdriver import Chrome, ChromeOptions, Firefox, FirefoxOptions, PhantomJS
 
 try:
     from secrets import mapbox_style, mapbox_access_token
@@ -66,12 +66,35 @@ def get_map_url():
     )
 
 
+def get_chrome():
+    options = ChromeOptions()
+    options.add_argument('--headless')
+    options.add_argument('--window_size={}x{}'.format(W, H))
+    return Chrome(chrome_options=options)
+
+
+def get_firefox():
+    options = FirefoxOptions()
+    options.add_argument('--headless')
+    options.add_argument('--window-size={},{}'.format(W, H))
+    return Firefox(options=options)
+
+
+def get_phantomjs():
+    driver = PhantomJS(service_log_path=mkstemp()[1])
+    driver.set_window_size(W, H)
+    return driver
+
+
 def generate_image(advice):
     image_path = os.path.join(mkdtemp(), 'pogo.png')
     html_path = os.path.join(HERE, 'index.html')
     url = 'file://{}#{}'.format(html_path, quote(advice, safe=''))
-    driver = PhantomJS(service_log_path=mkstemp()[1])
-    driver.set_window_size(W, H)
+
+    # driver = get_chrome()
+    # driver = get_firefox()
+    driver = get_phantomjs()
+
     driver.get(url)
 
     if mapbox:

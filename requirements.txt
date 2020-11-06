@@ -1,4 +1,4 @@
 requests>=2.11<3
 pillow>=3.3<3.4
-selenium>=2.53<3
+selenium==3.8.0
 tweepy>=3.5<3.6
